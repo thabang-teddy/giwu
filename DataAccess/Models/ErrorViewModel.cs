@@ -1,4 +1,4 @@
-namespace admin.Models
+namespace DataAccess.Models
 {
     public class ErrorViewModel
     {

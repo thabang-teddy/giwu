@@ -5,13 +5,11 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin", "admin\Admin.csproj", "{9CAC15DE-2641-465D-9319-80C6E96C24AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{BCDE695E-38DF-440F-BD91-334B85583326}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5758E6A6-E6AE-4DB2-A1C3-9A5AB967466E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "Utility\Utility.csproj", "{EFED0F61-52BE-45DD-9E72-45B4740B448E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndAPI", "FrontEndAPI\FrontEndAPI.csproj", "{B0DC0932-3F9B-499B-8780-C12549DCAD96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEndAPI", "FrontEndAPI\FrontEndAPI.csproj", "{B0DC0932-3F9B-499B-8780-C12549DCAD96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{9CAC15DE-2641-465D-9319-80C6E96C24AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CAC15DE-2641-465D-9319-80C6E96C24AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CAC15DE-2641-465D-9319-80C6E96C24AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCDE695E-38DF-440F-BD91-334B85583326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCDE695E-38DF-440F-BD91-334B85583326}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCDE695E-38DF-440F-BD91-334B85583326}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCDE695E-38DF-440F-BD91-334B85583326}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5758E6A6-E6AE-4DB2-A1C3-9A5AB967466E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5758E6A6-E6AE-4DB2-A1C3-9A5AB967466E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5758E6A6-E6AE-4DB2-A1C3-9A5AB967466E}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,0 +1,32 @@
+﻿@model List<BibleVersion>
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">BibleVersion List</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+
+        <table id="datatables" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Version</th>
+                    <th>Abbreviation</th>
+                    <th>Language</th>
+                    <th>Info URL</th>
+                    <th>Copyright</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/shared/datatables.js"></script>
+}
