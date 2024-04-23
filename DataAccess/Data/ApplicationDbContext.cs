@@ -11,7 +11,6 @@ namespace DataAccess.Data
         {
         }
 
-        public DbSet<BibleBookList> BibleBookLists { get; set; }
         public DbSet<BibleVersion> BibleVersions { get; set; }
         public DbSet<BibleVerse> BibleVerses { get; set; }
 

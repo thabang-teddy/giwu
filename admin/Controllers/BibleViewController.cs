@@ -1,4 +1,5 @@
-﻿using DataAccess.Models;
+﻿using Admin.ViewModel.BibleView;
+using AutoMapper;
 using DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,22 +8,33 @@ namespace Admin.Controllers
     public class BibleViewController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        public BibleViewController(IUnitOfWork unitOfWork)
+
+        private readonly IMapper _mapper;
+
+        public BibleViewController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            List<BibleVersion> objBibleVersionList = new();
+            List<BibleVersionDatatableViewModel> objBibleVersionList = new();
             return View(objBibleVersionList);
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<BibleVersion> objBibleVersionList = _unitOfWork.BibleVersions.GetAll().ToList();
+            var objBibleVersionList = _mapper.Map<List<BibleVersionDatatableViewModel>>(_unitOfWork.BibleVersions.GetAll().ToList());
             return Json(new { data = objBibleVersionList });
+        }
+
+        public IActionResult Details(Guid id)
+        {
+            var objBibleVersionList = _mapper.Map<BibleVersionViewModel>(_unitOfWork.BibleVersions.Get(x => x.Id == id));
+            return View(objBibleVersionList);
         }
 
     }

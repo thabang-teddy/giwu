@@ -2,6 +2,7 @@ using DataAccess.Data;
 using DataAccess.Repository.IRepository;
 using DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
+using Admin.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Register AutoMapper
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Register AutoMapper
+builder.Services.AddAutoMapper(typeof(BibleViewProfile).Assembly);
+
 
 var app = builder.Build();
 

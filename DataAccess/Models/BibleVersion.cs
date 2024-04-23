@@ -9,6 +9,7 @@ namespace DataAccess.Models
 {
     public class BibleVersion
     {
+        [Key]
         public Guid Id { get; set; }
         [Required]
         public required string Table { get; set; }
@@ -24,7 +25,8 @@ namespace DataAccess.Models
         public string? Copyright { get; set; }
         public string? CopyrightInfo { get; set; }
 
-        public List<BibleBookList>? BibleBookLists { get; set; }
+        public string? BookList { get; set; }
+
         public List<BibleVerse>? BibleVerses { get; set; }
     }
 }

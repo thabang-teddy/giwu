@@ -1,0 +1,51 @@
+﻿@model BibleVersionViewModel
+
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <h3>@Model.Version</h3>
+                <p></p>
+                <p>Table : @Model.Table</p>
+                <p>Abbreviation : @Model.Abbreviation</p>
+                <p>Language : @Model.Language</p>
+                <p>InfoText : @Model.InfoText</p>
+                <p>InfoURL : @Model.InfoURL</p>
+                <p>Publisher : @Model.Publisher</p>
+                <p>Copyright : @Model.Copyright</p>
+                <p>CopyrightInfo : @Model.CopyrightInfo</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                    <h3>Book List</h3>
+                <ul class="list-unstyled ps-0">
+                    @if(Model.BibleBookLists != null && Model.BibleBookLists.Any())
+                    {
+                        for (int i = 0; i < Model.BibleBookLists.Count; i++)
+                        {
+                            <li class="mb-1">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#book-@(Model.BibleBookLists[i].Book)-collapse" aria-expanded="false">
+                                    @Model.BibleBookLists[i].Book @Model.BibleBookLists[i].Name (@Model.BibleBookLists[i].ChapterCount)
+                                </button>
+                                <div class="collapse" id="book-@(Model.BibleBookLists[i].Book)-collapse" style="">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        @if (Model.BibleBookLists != null && Model.BibleBookLists.Any())
+                                        {
+                                            for (int a = 0; a < Model.BibleBookLists[i].ChapterCount; a++)
+                                            {
+                                                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Chapter @(a + 1)</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

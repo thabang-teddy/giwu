@@ -11,14 +11,12 @@ namespace DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext _db;
-        public IBibleBookListRepository BibleBookLists { get; private set; }
         public IBibleVersionRepository BibleVersions { get; private set; }
         public IBibleVerseRepository BibleVerses { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
-            BibleBookLists = new BibleBookListRepository(_db);
             BibleVersions = new BibleVersionRepository(_db);
             BibleVerses = new BibleVerseRepository(_db);
         }
