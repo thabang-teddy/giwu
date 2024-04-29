@@ -37,5 +37,10 @@ namespace Admin.Controllers
             return View(objBibleVersionList);
         }
 
+        public IActionResult GetChapter(Guid id)
+        {
+            return Ok(new { success = true});
+        }
+
     }
 }
