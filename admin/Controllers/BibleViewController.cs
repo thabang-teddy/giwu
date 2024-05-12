@@ -1,5 +1,6 @@
 ﻿using Admin.ViewModel.BibleView;
 using AutoMapper;
+using DataAccess.Models;
 using DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,9 +38,18 @@ namespace Admin.Controllers
             return View(objBibleVersionList);
         }
 
-        public IActionResult GetChapter(Guid id)
+        [HttpPost]
+        public IActionResult GetChapter(ChapterRequestViewModel reguest)
         {
-            return Ok(new { success = true});
+            if (string.IsNullOrEmpty(reguest.Bible))
+            {
+                return NotFound();
+            }
+            
+            var verseList = _unitOfWork.BibleVerses.GetChapterVerses(reguest.Bible, reguest.Book, reguest.Chapter);
+
+            // return Ok(new { success = true, data = _mapper.Map<List<BibleVerseViewModel>>(verseList) });
+            return PartialView("~/Views/BibleView/Partial/ReadModal .cshtml", verseList);
         }
 
     }

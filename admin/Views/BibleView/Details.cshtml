@@ -21,26 +21,26 @@
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 h-100">
         <div class="card">
             <div class="card-body">
-                    <h3>Book List</h3>
+                <h3>Book List</h3>
                 <ul class="list-unstyled ps-0">
-                    @if(Model.BibleBookLists != null && Model.BibleBookLists.Any())
+                    @if (Model.BibleBookLists != null && Model.BibleBookLists.Any())
                     {
-                        for (int i = 0; i < Model.BibleBookLists.Count; i++)
+                        for (int i = 0; i < Model.BibleBookLists?.Count; i++)
                         {
                             <li class="mb-1">
-                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#book-@(Model.BibleBookLists[i].Book)-collapse" aria-expanded="false">
-                                    @Model.BibleBookLists[i].Book @Model.BibleBookLists[i].Name (@Model.BibleBookLists[i].ChapterCount)
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#book-@(Model.BibleBookLists[i].b)-collapse" aria-expanded="false">
+                                    @Model.BibleBookLists[i].b @Model.BibleBookLists[i].n (@Model.BibleBookLists[i].c)
                                 </button>
-                                <div class="collapse" id="book-@(Model.BibleBookLists[i].Book)-collapse" style="">
+                                <div class="collapse" id="book-@(Model.BibleBookLists[i].b)-collapse" style="">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         @if (Model.BibleBookLists != null && Model.BibleBookLists.Any())
                                         {
-                                            for (int a = 0; a < Model.BibleBookLists[i].ChapterCount; a++)
+                                            for (int a = 0; a < Model.BibleBookLists[i].c; a++)
                                             {
-                                                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded chapter" data-chapter="@a">Chapter @(a + 1)</a></li>
+                                                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded chapter" data-bible="@Model.Abbreviation" data-book="@Model.BibleBookLists[i].b" data-chapter="@(a + 1)">Chapter @(a + 1)</a></li>
                                             }
                                         }
                                     </ul>

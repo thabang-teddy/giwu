@@ -13,6 +13,7 @@ namespace Admin.Profiles
             CreateMap<BibleVersion, BibleVersionDatatableViewModel>().ReverseMap();
             CreateMap<BibleVersion, BibleVersionViewModel>()
                 .ForMember(dest => dest.BibleBookLists, opt => opt.MapFrom(src => JsonHelper.TurnStringToList(src.BookList)));
+            CreateMap<BibleVerse, BibleVerseViewModel>().ReverseMap();
         }
 
     }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository.IRepository
 {
-    public interface IBibleVerseRepository : IRepository<BibleVerse>
+    public interface IBibleVerseRepository
     {
-        void Update(BibleVerse obj);
+        List<BibleVerse>? GetChapterVerses(string tableName,int book, int chapter);
     }
 }

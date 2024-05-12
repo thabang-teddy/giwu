@@ -29,9 +29,21 @@ namespace Admin.ViewModel.BibleView
     }
     public class BibleDetailsBookListViewModel
     {
-        public required string Name { get; set; }
+        public int b { get; set; }
+        public int c { get; set; }
+        public required string n { get; set; }
+        public required string t { get; set; }
+        public int g { get; set; }
+    }
+    public class BibleVerseViewModel
+    {
+        public int Verse { get; set; }
+        public required string Text { get; set; }
+    }
+    public class ChapterRequestViewModel
+    {
+        public string? Bible { get; set; }
         public int Book { get; set; }
-        public required string Testament { get; set; }
-        public int ChapterCount { get; set; }
+        public int Chapter { get; set; }
     }
 }

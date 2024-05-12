@@ -20,6 +20,16 @@ builder.Services.AddAutoMapper(typeof(BibleViewProfile).Assembly);
 
 var app = builder.Build();
 
+/*
+*/
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    context.Database.EnsureCreated();  // Ensure database is created
+    SeedData.Seed(context);     // Initialize the seed data
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
