@@ -1,11 +1,12 @@
 ﻿using Admin.ViewModel.BibleView;
+using DataAccess.Models;
 using System.Text.Json;
 
 namespace Utility.helpers
 {
     public static class JsonHelper
     {
-        public static List<BibleDetailsBookListViewModel> TurnStringToList (string? jsonString = null)
+        public static List<BibleDetailsBookListViewModel>? TurnStringToList (string? jsonString = null)
         {
             List<BibleDetailsBookListViewModel> newLIst = new();
 

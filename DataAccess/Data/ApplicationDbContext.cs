@@ -13,6 +13,7 @@ namespace DataAccess.Data
         }
 
         public DbSet<BibleVersion> BibleVersions { get; set; }
+        public DbSet<BibleBookList> BibleBookLists { get; set; }
         public DbSet<ASVBibleVerse> ASV { get; set; }
         public DbSet<BBEBibleVerse> BBE { get; set; }
         public DbSet<DARBYBibleVerse> DARBY { get; set; }

@@ -34,7 +34,7 @@ namespace Admin.Controllers
 
         public IActionResult Details(Guid id)
         {
-            var objBibleVersionList = _mapper.Map<BibleVersionViewModel>(_unitOfWork.BibleVersions.Get(x => x.Id == id));
+            var objBibleVersionList = _mapper.Map<BibleVersionViewModel>(_unitOfWork.BibleVersions.Get(x => x.Id == id, "BibleBookList"));
             return View(objBibleVersionList);
         }
 

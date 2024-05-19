@@ -1,4 +1,4 @@
-using DataAccess.Models;
+using DataAccess.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

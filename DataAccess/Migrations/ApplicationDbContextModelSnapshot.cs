@@ -74,6 +74,23 @@ namespace DataAccess.Migrations
                     b.ToTable("BBE");
                 });
 
+            modelBuilder.Entity("DataAccess.Models.BibleBookList", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BibleVersionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BookList")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BibleBookLists");
+                });
+
             modelBuilder.Entity("DataAccess.Models.BibleVersion", b =>
                 {
                     b.Property<Guid>("Id")
@@ -84,8 +101,11 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BookList")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("BibleBookListId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("BibleBookListId1")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Copyright")
                         .HasColumnType("nvarchar(max)");
@@ -115,6 +135,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BibleBookListId1");
 
                     b.ToTable("BibleVersions");
                 });
@@ -247,6 +269,15 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("YLT");
+                });
+
+            modelBuilder.Entity("DataAccess.Models.BibleVersion", b =>
+                {
+                    b.HasOne("DataAccess.Models.BibleBookList", "BibleBookList")
+                        .WithMany()
+                        .HasForeignKey("BibleBookListId1");
+
+                    b.Navigation("BibleBookList");
                 });
 #pragma warning restore 612, 618
         }

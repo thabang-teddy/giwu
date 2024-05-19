@@ -25,6 +25,7 @@ namespace DataAccess.Models
         public string? Copyright { get; set; }
         public string? CopyrightInfo { get; set; }
 
-        public string? BookList { get; set; }
+        public Guid? BibleBookListId { get; set; }
+        public BibleBookList? BibleBookList { get; set; }
     }
 }
