@@ -1,32 +1,55 @@
 ﻿@model List<BibleVersionDatatableViewModel>
 
-<div class="card shadow border-0 my-4">
-    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+@{
+    ViewData["Title"] = "Bible Version List";
+}
+
+@section Styles {
+    <link href="~/lib/datatable/dataTables.dataTables.min.css" rel="stylesheet" />
+}
+
+@section StartScripts {
+    <script src="~/lib/datatable/dataTables.min.js"></script>
+}
+
+<div class="container-fluid">
+    <div class="social-dash-wrap">
         <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="text-white py-2">BibleVersion List</h2>
+            <div class="col-lg-12">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Bible Version List</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Bible Version List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="datatables" class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Version</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Abbreviation</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Language</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Info URL</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Copyright</th>
+                            <th class="text-secondary opacity-7"></th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
-    <div class="card-body p-4">
-
-        <table id="datatables" class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Version</th>
-                    <th>Abbreviation</th>
-                    <th>Language</th>
-                    <th>Info URL</th>
-                    <th>Copyright</th>
-                    <th></th>
-                </tr>
-            </thead>
-        </table>
-
-    </div>
 </div>
 
-
-@section Scripts {
+@section EndScripts {
     <script src="~/js/shared/datatables.js"></script>
 }

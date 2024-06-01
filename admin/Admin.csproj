@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Data\SeedData\Json\" />
+    <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 
 </Project>
