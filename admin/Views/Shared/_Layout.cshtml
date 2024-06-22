@@ -9,23 +9,27 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon.png">
 
-    <!-- Vendor Styles -->
-    @RenderSection("VendorStyles", required: false)
-    
     <!-- Main Styles -->
     @await Html.PartialAsync("Layout/_MainStyles")
 
-
+    <!-- Vendor Styles -->
+    @RenderSection("VendorStyles", required: false)
+    
     <!-- Page Styles -->
     @RenderSection("PageStyles", required: false)
 
+    <!-- Main Scripts -->
+    @await Html.PartialAsync("Layout/_MainScripts")
 
+    <!-- Vendor Scripts -->
+    @RenderSection("VendorScripts", required: false)
+    
 </head>
 
 <body class="layout-light side-menu">
     <div class="mobile-search">
         <form action="/" class="search-form">
-            <img src="img/svg/search.svg" alt="search" class="svg">
+            <img src="~/img/svg/search.svg" alt="search" class="svg">
             <input class="form-control me-sm-2 box-shadow-none" type="search" placeholder="Search..." aria-label="Search">
         </form>
     </div>
@@ -46,16 +50,10 @@
         @await Html.PartialAsync("Layout/_Footer")
 
     </main>
-    <!-- Main Scripts -->
-    @await Html.PartialAsync("Layout/_MainScripts")
-
-    <!-- Vendor Scripts -->
-    @RenderSection("VendorScripts", required: false)
-
-    <script src="~/theme_assets/js/main.js"></script>
 
     <!-- Page Scripts-->
     @RenderSection("PageScripts", required: false)
+
 </body>
 
 </html>

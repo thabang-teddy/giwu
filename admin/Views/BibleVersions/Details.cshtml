@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BibleVersionViewModel
+
+@{
     ViewData["Title"] = "Admin - Bible Version Details";
 }
 
@@ -12,4 +14,93 @@
 }
 
 @section PageScripts {
+    <script src="~/js/bibleversion/details.js"></script>
 }
+
+<div class="container-fluid">
+    <div class="social-dash-wrap">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Bible Version Details</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="BibleView" asp-action="Index">Bible Version List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Bible Version Details</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>@Model.Version</h3>
+                                <p></p>
+                                <p>Table : @Model.Table</p>
+                                <p>Abbreviation : @Model.Abbreviation</p>
+                                <p>Language : @Model.Language</p>
+                                <p>InfoText : @Model.InfoText</p>
+                                <p>InfoURL : @Model.InfoURL</p>
+                                <p>Publisher : @Model.Publisher</p>
+                                <p>Copyright : @Model.Copyright</p>
+                                <p>CopyrightInfo : @Model.CopyrightInfo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 h-100">
+                        <div class="card card-default card-md mb-4">
+                            <div class="card-header py-20">
+                                <h6>Book List</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="dm-collapse dm-accordion" id="book-list">
+                                    @if (Model.BibleBookLists != null && Model.BibleBookLists.Any())
+                                    {
+                                        for (int i = 0; i < Model.BibleBookLists?.Count; i++)
+                                        {
+                                            <div class="dm-collapse-item">
+                                                <div class="dm-collapse-item__header">
+                                                    <a href="#" class="item-link" data-bs-toggle="collapse" data-bs-target="#book-@(Model.BibleBookLists[i].b)-collapse" aria-expanded="false">
+                                                        <i class="la la-angle-right"></i>
+                                                        <h6>@Model.BibleBookLists[i].b @Model.BibleBookLists[i].n (@Model.BibleBookLists[i].c)</h6>
+                                                    </a>
+                                                </div>
+                                                <div id="book-@(Model.BibleBookLists[i].b)-collapse" class="collapse dm-collapse-item__body">
+                                                    <div class="collapse-body-text">
+                                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small mx-4">
+                                                            @if (Model.BibleBookLists != null && Model.BibleBookLists.Any())
+                                                            {
+                                                                for (int a = 0; a < Model.BibleBookLists[i].c; a++)
+                                                                {
+                                                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded chapter" data-bible="@Model.Abbreviation" data-book="@Model.BibleBookLists[i].b" data-chapter="@(a + 1)">Chapter @(a + 1)</a></li>
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<partial name="~/Views/Shared/Modals/_ReadModal.cshtml" />
