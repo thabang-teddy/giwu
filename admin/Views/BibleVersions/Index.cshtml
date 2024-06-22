@@ -1,7 +1,7 @@
 ﻿@model List<BibleVersionDatatableViewModel>
 
 @{
-    ViewData["Title"] = "Bible Version List";
+    ViewData["Title"] = "Admin - Bible Version List";
 }
 
 @section VendorStyles {
@@ -16,7 +16,7 @@
 }
 
 @section PageScripts {
-    <script src="~/js/bibleview/index.js"></script>
+    <script src="~/js/bibleversion/index.js"></script>
 }
 
 <div class="container-fluid">
@@ -24,11 +24,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-main">
-                    <h4 class="text-capitalize breadcrumb-title">Bible Version List</h4>
+                    <h4 class="text-capitalize breadcrumb-title">Admin - Bible Version List</h4>
                     <div class="breadcrumb-action justify-content-center flex-wrap">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item">Admin</li>
                                 <li class="breadcrumb-item active" aria-current="page">Bible Version List</li>
                             </ol>
                         </nav>
@@ -54,7 +55,7 @@
                             </thead>
                         </table>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>

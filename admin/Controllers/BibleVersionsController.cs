@@ -1,18 +1,17 @@
 ﻿using Admin.ViewModel.BibleView;
 using AutoMapper;
-using DataAccess.Models;
 using DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Admin.Controllers
 {
-    public class BibleViewController : Controller
+    public class BibleVersionsController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
 
         private readonly IMapper _mapper;
 
-        public BibleViewController(IUnitOfWork unitOfWork, IMapper mapper)
+        public BibleVersionsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
 
@@ -45,12 +44,11 @@ namespace Admin.Controllers
             {
                 return NotFound();
             }
-            
+
             var verseList = _unitOfWork.BibleVerses.GetChapterVerses(reguest.Bible, reguest.Book, reguest.Chapter);
 
             // return Ok(new { success = true, data = _mapper.Map<List<BibleVerseViewModel>>(verseList) });
             return PartialView("~/Views/BibleView/Partial/ReadModal .cshtml", verseList);
         }
-
     }
 }

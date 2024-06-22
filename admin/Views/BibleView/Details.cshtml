@@ -2,8 +2,18 @@
 
 @{
     ViewData["Title"] = "Bible Version Details";
+}
 
-    <script src="~/js/bible-view/bible-view.js"></script>
+@section VendorStyles {
+}
+
+@section PageStyles {
+}
+
+@section VendorScripts {
+}
+
+@section PageScripts {
 }
 
 <div class="container-fluid">
@@ -16,8 +26,8 @@
                     <div class="breadcrumb-action justify-content-center flex-wrap">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Bible Version List</li>
+                                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="BibleView" asp-action="Index">Bible Version List</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Bible Version Details</li>
                             </ol>
                         </nav>
