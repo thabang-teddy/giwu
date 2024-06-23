@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Data\SeedData\Json\" />
-    <Folder Include="ViewModel\BibleVersion\" />
     <Folder Include="wwwroot\js\shared\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
     <Folder Include="wwwroot\lib\jquery\datatables\" />

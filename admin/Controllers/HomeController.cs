@@ -2,7 +2,7 @@ using DataAccess.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace admin.Controllers
+namespace Admin.Controllers
 {
     public class HomeController : Controller
     {

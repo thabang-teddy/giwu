@@ -1,4 +1,4 @@
-﻿using Admin.ViewModel.BibleView;
+﻿using DataAccess.ViewModel.BibleView;
 using DataAccess.Models;
 using System.Text.Json;
 

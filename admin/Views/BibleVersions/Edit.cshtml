@@ -1,0 +1,115 @@
+﻿@model BibleVersionEditViewModel
+
+@{
+    ViewData["Title"] = "Admin - Bible Version Details";
+}
+
+@section VendorStyles {
+}
+
+@section PageStyles {
+}
+
+@section VendorScripts {
+}
+
+@section PageScripts {
+    <script src="~/js/bibleversion/details.js"></script>
+}
+
+<div class="container-fluid">
+    <div class="social-dash-wrap">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Bible Version Edit</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="BibleVersions" asp-action="Index">Bible Version List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-50">
+                    <div class="row justify-content-center">
+                        <div class="col-11">
+                            <div class="mt-40 mb-50">
+                                <div class="edit-profile__body">
+                                    <form asp-action="Edit" class="row">
+                                        
+                                        <input asp-for="Id" type="hidden">
+
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Table">Table Name</label>
+                                            <input asp-for="Table" class="form-control" placeholder="Table Name">
+                                            <span asp-validation-for="Table" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Abbreviation">Abbreviation</label>
+                                            <input asp-for="Abbreviation" class="form-control" placeholder="Abbreviation">
+                                            <span asp-validation-for="Abbreviation" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Language">Language</label>
+                                            <input asp-for="Language" class="form-control" placeholder="Language">
+                                            <span asp-validation-for="Language" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Version">Version</label>
+                                            <input asp-for="Version" class="form-control" placeholder="Version">
+                                            <span asp-validation-for="Version" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="InfoText">Info Text</label>
+                                            <input asp-for="InfoText" class="form-control" placeholder="Info Text">
+                                            <span asp-validation-for="InfoText" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="InfoURL">Info URL</label>
+                                            <input asp-for="InfoURL" class="form-control" placeholder="Info URL">
+                                            <span asp-validation-for="InfoURL" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Publisher">Publisher</label>
+                                            <input asp-for="Publisher" class="form-control" placeholder="Publisher">
+                                            <span asp-validation-for="Publisher" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Copyright">Copyright</label>
+                                            <input asp-for="Copyright" class="form-control" placeholder="Copyright">
+                                            <span asp-validation-for="Copyright" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="CopyrightInfo">Copyright Info</label>
+                                            <input asp-for="CopyrightInfo" class="form-control" placeholder="Copyright Info">
+                                            <span asp-validation-for="CopyrightInfo" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <div class="countryOption">
+                                                <label asp-for="BookListSource">Book List Source</label>
+                                                <select class="js-example-basic-single js-states form-control" asp-for="BookListSource" asp-items="Model.BookListSources">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="button-group d-flex pt-25 justify-content-md-end justify-content-start col-12">
+                                            <button type="submit" class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

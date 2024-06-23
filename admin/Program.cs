@@ -15,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Register AutoMapper
-builder.Services.AddAutoMapper(typeof(BibleViewProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(BibleProfile).Assembly);
 
 
 var app = builder.Build();

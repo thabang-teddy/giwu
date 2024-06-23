@@ -1,4 +1,4 @@
-﻿using Admin.ViewModel.BibleView;
+﻿using DataAccess.ViewModel.BibleView;
 using AutoMapper;
 using DataAccess.Models;
 using DataAccess.Repository.IRepository;

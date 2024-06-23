@@ -1,7 +1,4 @@
-﻿using DataAccess.Models;
-using System.ComponentModel.DataAnnotations;
-
-namespace Admin.ViewModel.BibleView
+﻿namespace DataAccess.ViewModel.BibleView
 {
     public class BibleVersionDatatableViewModel
     {

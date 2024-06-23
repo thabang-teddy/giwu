@@ -38,7 +38,10 @@ $(document).ready(function () {
                 "orderable": false,
                 "searchable": false,
                 "render": function (data) {
-                    return '<a href="/BibleVersions/Details/' + data + '"><i class="fa fa-eye"></i></a>';
+                    return (
+                        '<a href="/BibleVersions/Details/' + data + '"><i class="fa fa-eye"></i></a>' +
+                        '<a href="/BibleVersions/Edit/' + data + '" class="mx-2"><i class="fa fa-pen"></i></a>'
+                    );
                 },
                 "className": 'col-1 text-center',
             }
