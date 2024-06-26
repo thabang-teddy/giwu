@@ -42,7 +42,6 @@ $(document).ready(function () {
                         '<ul class="orderDatatable_actions mb-0 d-flex flex-wrap">' +
                         '<li><a href="/BibleVersions/Details/' + data + '" class="view"><i class="fa fa-eye"></i></a></li>' +
                         '<li><a href="/BibleVersions/Edit/' + data + '" class="edit"><i class="fa fa-edit"></i></a></li>' +
-                        '<li><a href="#" class="remove"><i class="fa fa-trash-alt"></i></a></li>' +
                         '</ul>'
                     );
                 },

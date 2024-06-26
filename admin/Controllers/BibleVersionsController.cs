@@ -55,55 +55,6 @@ namespace Admin.Controllers
             return PartialView("~/Views/Shared/Modals/_ReadModalData.cshtml", verseList);
         }
 
-        public IActionResult Create()
-        {
-            BibleVersionCreateViewModel viewModel = new()
-            {
-                Table = "",
-                Abbreviation = "",
-                Language = "",
-                Version = "",
-                BookListSources = _mapper.Map<List<SelectListItem>>(_unitOfWork.BibleVersions.GetAll().ToList()),
-            };
-
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        public IActionResult Create(BibleVersionCreateViewModel newBibleVersion)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var bibleVersion = _mapper.Map<BibleVersion>(newBibleVersion);
-
-                    if (newBibleVersion.BookListSource != Guid.Empty)
-                    {
-                        BibleVersion? bibleVersionFromDb = _unitOfWork.BibleVersions.Get(u => u.Id == newBibleVersion.BookListSource);
-
-                        if (bibleVersionFromDb != null)
-                        {
-                            bibleVersion.BibleBookListId = bibleVersionFromDb.BibleBookListId;
-                        }
-                    }
-
-                    bibleVersion.Id = Guid.NewGuid();
-                    _unitOfWork.BibleVersions.Add(bibleVersion);
-                    _unitOfWork.Save();
-
-                    return RedirectToAction("Edit", new { id = bibleVersion.Id });
-                }
-                catch (Exception)
-                {
-                }
-            }
-
-            newBibleVersion.BookListSources = _mapper.Map<List<SelectListItem>>(_unitOfWork.BibleVersions.GetAll().ToList());
-            return View(newBibleVersion);
-
-        }
-
         public IActionResult Edit(Guid? id)
         {
             if (id == Guid.Empty)

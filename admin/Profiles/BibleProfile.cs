@@ -19,7 +19,6 @@ namespace Admin.Profiles
                 .ForMember(dest => dest.BibleBookLists, opt => opt.MapFrom(src => JsonHelper.TurnStringToList(src.BibleBookList != null ? src.BibleBookList.BookList : "")));
             CreateMap<BibleVerse, BibleVerseViewModel>().ReverseMap();
 
-            CreateMap<BibleVersion, BibleVersionCreateViewModel>().ReverseMap();
             CreateMap<BibleVersion, BibleVersionEditViewModel>().ReverseMap();
 
             //Select List Items
