@@ -77,12 +77,12 @@
                                                 </div>
                                                 <div id="book-@(Model.BibleBookLists[i].b)-collapse" class="collapse dm-collapse-item__body">
                                                     <div class="collapse-body-text">
-                                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small mx-4">
+                                                        <ul class="list-group list-group-flush">
                                                             @if (Model.BibleBookLists != null && Model.BibleBookLists.Any())
                                                             {
                                                                 for (int a = 0; a < Model.BibleBookLists[i].c; a++)
                                                                 {
-                                                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded chapter" data-bible="@Model.Abbreviation" data-book="@Model.BibleBookLists[i].b" data-chapter="@(a + 1)">Chapter @(a + 1)</a></li>
+                                                                    <li class="list-group-item ps-5"><a href="#" class="chapter text-dark" data-bible="@Model.Abbreviation" data-book="@Model.BibleBookLists[i].b" data-chapter="@(a + 1)">Chapter @(a + 1)</a></li>
                                                                 }
                                                             }
                                                         </ul>

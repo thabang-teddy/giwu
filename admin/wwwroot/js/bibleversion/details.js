@@ -6,7 +6,7 @@ $(document).ready(function () {
         var chapter = e.currentTarget.getAttribute("data-chapter");
 
         $.ajax({
-            url: '/BibleView/GetChapter', // Replace with your server endpoint
+            url: '/BibleVersions/GetChapter', // Replace with your server endpoint
             method: 'POST',
             data: {
                 bible: bible,

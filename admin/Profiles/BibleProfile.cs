@@ -12,7 +12,9 @@ namespace Admin.Profiles
         public BibleProfile()
         {
             // CreateMap<source, destination>();
-            CreateMap<BibleVersion, BibleVersionDatatableViewModel>().ReverseMap();
+            CreateMap<BibleVersion, BibleVersionDatatableViewModel>()
+                .ForMember(dest => dest.InfoURL, opt => opt.MapFrom(src => TextHelper.MinimizeLength(src.InfoURL, 40)))
+                .ForMember(dest => dest.Copyright, opt => opt.MapFrom(src => TextHelper.MinimizeLength(src.Copyright,40)));
             CreateMap<BibleVersion, BibleVersionViewModel>()
                 .ForMember(dest => dest.BibleBookLists, opt => opt.MapFrom(src => JsonHelper.TurnStringToList(src.BibleBookList != null ? src.BibleBookList.BookList : "")));
             CreateMap<BibleVerse, BibleVerseViewModel>().ReverseMap();

@@ -52,7 +52,7 @@ namespace Admin.Controllers
             var verseList = _unitOfWork.BibleVerses.GetChapterVerses(reguest.Bible, reguest.Book, reguest.Chapter);
 
             // return Ok(new { success = true, data = _mapper.Map<List<BibleVerseViewModel>>(verseList) });
-            return PartialView("~/Views/Shared/Modals/ReadModalData.cshtml", verseList);
+            return PartialView("~/Views/Shared/Modals/_ReadModalData.cshtml", verseList);
         }
 
         public IActionResult Create()

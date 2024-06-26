@@ -1,5 +1,4 @@
 ﻿using DataAccess.ViewModel.BibleView;
-using DataAccess.Models;
 using System.Text.Json;
 
 namespace Utility.helpers
@@ -10,7 +9,7 @@ namespace Utility.helpers
         {
             List<BibleDetailsBookListViewModel> newLIst = new();
 
-            if (jsonString == null)
+            if (string.IsNullOrEmpty(jsonString))
             {
                 return newLIst;
             }

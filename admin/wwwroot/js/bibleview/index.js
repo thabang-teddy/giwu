@@ -38,7 +38,11 @@ $(document).ready(function () {
                 "orderable": false,
                 "searchable": false,
                 "render": function (data) {
-                    return '<a href="/BibleView/Details/' + data + '"><i class="fa fa-eye"></i></a>';
+                    return (
+                        '<ul class="orderDatatable_actions mb-0 d-flex flex-wrap">' +
+                        '<li><a href="/BibleView/Details/' + data + '" class="view"><i class="fa fa-eye"></i></a></li>' +
+                        '</ul>'
+                    );
                 },
                 "className": 'col-1 text-center',
             }

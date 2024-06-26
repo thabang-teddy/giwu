@@ -22,7 +22,7 @@
         public string? Copyright { get; set; }
         public string? CopyrightInfo { get; set; }
 
-        public List<BibleDetailsBookListViewModel>? BibleBookLists { get; set; }
+        public List<BibleDetailsBookListViewModel> BibleBookLists { get; set; } = new List<BibleDetailsBookListViewModel>();
     }
     public class BibleDetailsBookListViewModel
     {
