@@ -1,15 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace DataAccess.Models
+namespace Admin.ViewModel.BibleBookList
 {
-    public class BibleBookList
+    public class BibleBookListEditViewModel
     {
-        [Key]
         public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? BookList { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime LastUpdatedDate { get; set; }
-        public List<BibleVersion> BibleVersions { get; set; } = new List<BibleVersion>();
+        public Guid BookListSource { get; set; }
+        public List<SelectListItem>? BookListSources { get; set; }
     }
 }

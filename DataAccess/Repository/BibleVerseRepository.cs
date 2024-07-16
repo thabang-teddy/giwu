@@ -1,14 +1,6 @@
 ﻿using DataAccess.Data;
 using DataAccess.Models;
 using DataAccess.Repository.IRepository;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-
 namespace DataAccess.Repository
 {
     internal class Repository

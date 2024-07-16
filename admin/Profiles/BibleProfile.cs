@@ -4,6 +4,7 @@ using AutoMapper;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Utility.helpers;
+using Admin.ViewModel.BibleBookList;
 
 namespace Admin.Profiles
 {
@@ -20,6 +21,9 @@ namespace Admin.Profiles
             CreateMap<BibleVerse, BibleVerseViewModel>().ReverseMap();
 
             CreateMap<BibleVersion, BibleVersionEditViewModel>().ReverseMap();
+
+            CreateMap<BibleBookList, BibleBookListDatatableViewModel>()
+                .ForMember(dest => dest.BookList, opt => opt.MapFrom(src => TextHelper.MinimizeLength(src.BookList != null ? src.BookList : "", 40)));
 
             //Select List Items
             CreateMap<BibleVersion, SelectListItem>()

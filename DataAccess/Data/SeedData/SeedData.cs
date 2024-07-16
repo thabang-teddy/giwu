@@ -24,7 +24,8 @@ public static class SeedData
                 {
                     string bibleBooksData = "";
                     var bibleBooksPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "SeedData", "Json", "key_english.json");
-                    if(bibleBooksPath != null)
+                    Guid bibleBookListId = Guid.NewGuid();
+                    if (bibleBooksPath != null)
                     {
                         var bibleBooksJsonText = File.ReadAllText(bibleBooksPath);
                         var bibleBooksJsonObject = JsonConvert.DeserializeObject<BibleVersionRootObject>(bibleBooksJsonText);
@@ -32,40 +33,43 @@ public static class SeedData
                         if (bibleBooksJsonObject != null)
                         {
                             bibleBooksData = bibleBooksJsonObject.resultset.keys.ToString() ?? "";
+                            DateTime dateTime = DateTime.Now;
+
+                            context.BibleBookLists.Add(new BibleBookList()
+                            {
+                                Id = bibleBookListId,
+                                Name = "Base Bible Book List",
+                                BookList = bibleBooksData,
+                                CreatedDate = dateTime,
+                                LastUpdatedDate = dateTime,
+                            });
                         }
                     }
 
                     // Parse JSON and add to database
                     List<BibleVersion> bibleVersions = new();
-                    
-                    if(bibleJsonObject.resultset.row != null && bibleJsonObject.resultset.row.Any())
+
+                    if (bibleJsonObject.resultset.row != null && bibleJsonObject.resultset.row.Any())
                     {
                         List<Row> resultsetRow = bibleJsonObject.resultset.row;
                         for (int a = 0; a < resultsetRow.Count; a++)
                         {
                             Guid bibleVersionId = Guid.NewGuid();
-                            Guid bibleBookListId = Guid.NewGuid();
 
                             bibleVersions.Add(new BibleVersion
-                                {
-                                    Id = bibleVersionId,
-                                    Table = resultsetRow[a].field[1]?.ToString() ?? "",
-                                    Abbreviation = resultsetRow[a].field[2]?.ToString() ?? "",
-                                    Language = resultsetRow[a].field[3]?.ToString() ?? "",
-                                    Version = resultsetRow[a].field[4]?.ToString() ?? "",
-                                    InfoText = "",
-                                    InfoURL = resultsetRow[a].field[5]?.ToString(),
-                                    Publisher = "",
-                                    Copyright = resultsetRow[a].field[7]?.ToString(),
-                                    CopyrightInfo = "",
-                                    BibleBookListId = bibleBookListId,
-                                    BibleBookList = new BibleBookList()
-                                    {
-                                        Id = bibleBookListId,
-                                        BibleVersionId = bibleVersionId,
-                                        BookList = bibleBooksData,
-                                    }
-                                });
+                            {
+                                Id = bibleVersionId,
+                                Table = resultsetRow[a].field[1]?.ToString() ?? "",
+                                Abbreviation = resultsetRow[a].field[2]?.ToString() ?? "",
+                                Language = resultsetRow[a].field[3]?.ToString() ?? "",
+                                Version = resultsetRow[a].field[4]?.ToString() ?? "",
+                                InfoText = "",
+                                InfoURL = resultsetRow[a].field[5]?.ToString(),
+                                Publisher = "",
+                                Copyright = resultsetRow[a].field[7]?.ToString(),
+                                CopyrightInfo = "",
+                                BibleBookListId = bibleBookListId,
+                            });
 
                         }
                         context.BibleVersions.AddRange(bibleVersions);

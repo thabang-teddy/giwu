@@ -9,6 +9,7 @@ namespace DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         IBibleVersionRepository BibleVersions { get; }
+        IBibleBookListRepository BibleBookLists { get; }
         IBibleVerseRepository BibleVerses { get; }
 
         void Save();

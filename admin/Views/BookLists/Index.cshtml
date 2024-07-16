@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Admin - Bible Book Lists";
+}
+
+@section VendorStyles {
+    <link rel="stylesheet" type="text/css" href="~/lib/jquery/datatables/jquery.dataTables.min.css">
+}
+
+@section PageStyles {
+}
+
+@section VendorScripts {
+    <script src="~/lib/jquery/datatables/jquery.dataTables.min.js"></script>
+}
+
+@section PageScripts {
+    <script src="~/js/booklists/index.js"></script>
+}
+
+<div class="container-fluid">
+    <div class="social-dash-wrap">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Admin - Bible Book Lists</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item">Admin</li>
+                                <li class="breadcrumb-item active" aria-current="page">Bible Book Lists</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-30">
+                    <div class="card-body">
+
+                        <table id="bibledatatables" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>BookList</th>
+                                    <th>Created Date</th>
+                                    <th>Last Updated Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

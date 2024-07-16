@@ -1,0 +1,77 @@
+﻿@using Admin.ViewModel.BibleBookList
+@model BibleBookListEditViewModel
+
+@{
+    ViewData["Title"] = "Admin - Bible Book List Details";
+}
+
+@section VendorStyles {
+}
+
+@section PageStyles {
+}
+
+@section VendorScripts {
+}
+
+@section PageScripts {
+}
+
+<div class="container-fluid">
+    <div class="social-dash-wrap">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Bible Book List Edit</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="uil uil-estate"></i>Home</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="BookLists" asp-action="Index">Bible Book List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-50">
+                    <div class="row justify-content-center">
+                        <div class="col-11">
+                            <div class="mt-40 mb-50">
+                                <div class="edit-profile__body">
+                                    <form asp-action="Edit" class="row">
+                                        
+                                        <input asp-for="Id" type="hidden">
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="Name">Name</label>
+                                            <input asp-for="Name" class="form-control" placeholder="Name">
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            <label asp-for="BookList">Book List</label>
+                                            <input asp-for="BookList" class="form-control" placeholder="Book List">
+                                            <span asp-validation-for="BookList" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-12 col-lg-6 my-3 d-flex align-items-end">
+                                            <span>
+                                                <strong>Created Date</strong> : @Model.CreatedDate | <strong>Last Updated Date</strong> : @Model.LastUpdatedDate
+                                            </span>
+                                        </div>
+                                        <div class="col-12 col-lg-6 my-3 d-flex align-items-end justify-content-end">
+                                            <button class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
