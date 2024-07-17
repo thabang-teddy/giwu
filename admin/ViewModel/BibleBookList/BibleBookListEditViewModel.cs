@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace Admin.ViewModel.BibleBookList
+﻿namespace Admin.ViewModel.BibleBookList
 {
     public class BibleBookListEditViewModel
     {
@@ -9,7 +7,6 @@ namespace Admin.ViewModel.BibleBookList
         public string? BookList { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime LastUpdatedDate { get; set; }
-        public Guid BookListSource { get; set; }
-        public List<SelectListItem>? BookListSources { get; set; }
+        public List<BibleBookListItemViewModel> BookLists { get; set; } = new List<BibleBookListItemViewModel>();
     }
 }

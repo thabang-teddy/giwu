@@ -35,43 +35,80 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mb-50">
-                    <div class="row justify-content-center">
-                        <div class="col-11">
-                            <div class="mt-40 mb-50">
-                                <div class="edit-profile__body">
-                                    <form asp-action="Edit" class="row">
-                                        
-                                        <input asp-for="Id" type="hidden">
-                                        <div class="form-group col-12 col-lg-6 mb-3">
-                                            <label asp-for="Name">Name</label>
-                                            <input asp-for="Name" class="form-control" placeholder="Name">
-                                            <span asp-validation-for="Name" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group col-12 col-lg-6 mb-3">
-                                            <label asp-for="BookList">Book List</label>
-                                            <input asp-for="BookList" class="form-control" placeholder="Book List">
-                                            <span asp-validation-for="BookList" class="text-danger"></span>
-                                        </div>
-                                        <div class="col-12 col-lg-6 my-3 d-flex align-items-end">
-                                            <span>
-                                                <strong>Created Date</strong> : @Model.CreatedDate | <strong>Last Updated Date</strong> : @Model.LastUpdatedDate
-                                            </span>
-                                        </div>
-                                        <div class="col-12 col-lg-6 my-3 d-flex align-items-end justify-content-end">
-                                            <button class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+        <form asp-action="Edit" class="row">
+            <div class="col-12 mb-3">
+                <div class="card">
+                    <div class="card-body row">
+
+                        <input asp-for="Id" type="hidden">
+                        <div class="form-group col-12 mb-3">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group col-12 mb-3">
+                            <label asp-for="BookList">Book Lists</label>
+                            <textarea asp-for="BookList" class="form-control" placeholder="Book Lists" rows="5"></textarea>
+                            <span asp-validation-for="BookList" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+
+                            <table id="biblebookdatatables" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Book</th>
+                                        <th>Chapters</th>
+                                        <th>Name</th>
+                                        <th>Testament</th>
+                                        <th>Genre</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.BookLists != null && Model.BookLists.Any())
+                                    {
+                                        for (int i = 0; i < Model.BookLists.Count; i++)
+                                        {
+
+                                            <tr>
+                                                <td>@Model.BookLists[i].b</td>
+                                                <td>@Model.BookLists[i].c</td>
+                                                <td>@Model.BookLists[i].n</td>
+                                                <td>@Model.BookLists[i].t</td>
+                                                <td>@Model.BookLists[i].g</td>
+                                                <td><a href="#"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="col-12 col-lg-6 my-3 d-flex align-items-end">
+                            <span>
+                                <strong>Created Date</strong> : @Model.CreatedDate | <strong>Last Updated Date</strong> : @Model.LastUpdatedDate
+                            </span>
+                        </div>
+                        <div class="col-12 col-lg-6 my-3 d-flex align-items-end justify-content-end">
+                            <button class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm">
+                                Save
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>

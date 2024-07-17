@@ -4,6 +4,7 @@ using DataAccess.Models;
 using DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace Admin.Controllers
 {
@@ -61,8 +62,10 @@ namespace Admin.Controllers
             }
 
             var newBibleBookList = _mapper.Map<BibleBookListEditViewModel>(bibleVersionFromDb);
-
-            newBibleBookList.BookListSources = _mapper.Map<List<SelectListItem>>(_unitOfWork.BibleBookLists.GetAll().ToList());
+            if (!string.IsNullOrEmpty(bibleVersionFromDb.BookList))
+            {
+                newBibleBookList.BookLists = JsonConvert.DeserializeObject<List<BibleBookListItemViewModel>>(bibleVersionFromDb.BookList);
+            }
             return View(newBibleBookList);
         }
 
