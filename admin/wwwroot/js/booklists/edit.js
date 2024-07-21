@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $('#biblebookdatatables').DataTable({
         "mark": true,
@@ -24,15 +25,30 @@ $(document).ready(function () {
                 "data": "genre",
                 "name": "Genre",
                 "className": 'text-center',
-            }
-        ],
-        columnDefs: [
+            },
             {
-                orderable: false,
-                searchable: false,
+                "data": "id",
+                "name": "Action",
+                "orderable": false,
+                "searchable": false,
+                "render": function (data) {
+                    return (
+                        '<ul class="orderDatatable_actions mb-0 d-flex flex-wrap">' +
+                        '<li><a href="#" class="view"><i class="fa fa-eye"></i></a></li>' +
+                        '<li><a href="#" class="edit"><i class="fa fa-edit"></i></a></li>' +
+                        '</ul>'
+                    );
+                },
+                "className": 'text-end',
+            }
+		],
+		columnDefs: [
+			{
+				orderable: false,
+				searchable: false,
                 targets: 0,
                 visible: false
-            },
-        ],
+			},
+		],
     });
 });

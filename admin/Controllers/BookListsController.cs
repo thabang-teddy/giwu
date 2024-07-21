@@ -43,17 +43,24 @@ namespace Admin.Controllers
 
         public IActionResult Details(Guid id)
         {
-            var objBibleBookListList = _mapper.Map<BibleBookListDetailsViewModel>(_unitOfWork.BibleBookLists.Get(x => x.Id == id));
-            return View(objBibleBookListList);
-        }
+            BibleBookList? bibleVersionFromDb = _unitOfWork.BibleBookLists.Get(u => u.Id == id);
 
-        public IActionResult Edit(Guid? id)
-        {
-            if (id == Guid.Empty)
+            if (bibleVersionFromDb == null)
             {
                 return NotFound();
             }
 
+            var newBibleBookList = _mapper.Map<BibleBookListDetailsViewModel>(bibleVersionFromDb);
+            if (!string.IsNullOrEmpty(bibleVersionFromDb.BookList))
+            {
+                newBibleBookList.BookLists = JsonConvert.DeserializeObject<List<BibleBookListItemViewModel>>(bibleVersionFromDb.BookList);
+            }
+
+            return View(newBibleBookList);
+        }
+
+        public IActionResult Edit(Guid id)
+        {
             BibleBookList? bibleVersionFromDb = _unitOfWork.BibleBookLists.Get(u => u.Id == id);
 
             if (bibleVersionFromDb == null)
@@ -66,6 +73,7 @@ namespace Admin.Controllers
             {
                 newBibleBookList.BookLists = JsonConvert.DeserializeObject<List<BibleBookListItemViewModel>>(bibleVersionFromDb.BookList);
             }
+
             return View(newBibleBookList);
         }
 
