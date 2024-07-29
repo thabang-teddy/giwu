@@ -6,6 +6,8 @@
 }
 
 @section VendorStyles {
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="~/lib/jquery/datatables/jquery.dataTables.min.css">
 }
 
@@ -49,7 +51,7 @@
                             <input asp-for="Name" class="form-control" placeholder="Name">
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -57,41 +59,40 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Book List</h3>
-                        <input asp-for="BookList" type="hidden"/>
+                        <input asp-for="BookList" type="hidden" />
                         <span asp-validation-for="BookList" class="text-danger"></span>
                     </div>
                     <div class="card-body">
-
-                            <table id="biblebookdatatables" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Book</th>
-                                        <th>Name</th>
-                                        <th>Chapters</th>
-                                        <th>Testament</th>
-                                        <th>Genre</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (Model.BookLists != null && Model.BookLists.Any())
+                        <button id="addNew" class="btn btn-primary mb-3" type="button">Add New</button>
+                        <table id="biblebookdatatables" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Name</th>
+                                    <th>Chapters</th>
+                                    <th>Testament</th>
+                                    <th>Genre</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.BookLists != null && Model.BookLists.Any())
+                                {
+                                    for (int i = 0; i < Model.BookLists.Count; i++)
                                     {
-                                        for (int i = 0; i < Model.BookLists.Count; i++)
-                                        {
+                                        <tr>
+                                            <td>@Model.BookLists[i].b</td>
+                                            <td>@Model.BookLists[i].n</td>
+                                            <td>@Model.BookLists[i].c</td>
+                                            <td>@Model.BookLists[i].t</td>
+                                            <td>@Model.BookLists[i].g</td>
+                                            <td>@Model.BookLists[i].b</td>
+                                        </tr>
 
-                                            <tr>
-                                                <td>@Model.BookLists[i].b</td>
-                                                <td>@Model.BookLists[i].n</td>
-                                                <td>@Model.BookLists[i].c</td>
-                                                <td>@Model.BookLists[i].t</td>
-                                                <td>@Model.BookLists[i].g</td>
-                                                <td></td>
-                                            </tr>
-
-                                        }
                                     }
-                                </tbody>
-                            </table>
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -112,5 +113,48 @@
                 </div>
             </div>
         </form>
+    </div>
+</div>
+
+
+
+
+<!-- Modal for CRUD operations -->
+<div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookModalLabel">Add/Edit Book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="bookForm">
+                    <input type="hidden" id="bookId">
+                    <div class="form-group">
+                        <label for="book">Book</label>
+                        <input type="number" class="form-control" id="book" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chapters">Chapters</label>
+                        <input type="number" class="form-control" id="chapters" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="testament">Testament</label>
+                        <input type="text" class="form-control" id="testament" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="genre" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

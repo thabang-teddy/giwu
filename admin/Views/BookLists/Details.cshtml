@@ -17,7 +17,7 @@
 }
 
 @section PageScripts {
-    <script src="~/js/bibleversion/details.js"></script>
+    <script src="~/js/booklists/details.js"></script>
 }
 
 <div class="container-fluid">
@@ -80,7 +80,6 @@
                                 {
                                     for (int i = 0; i < Model.BookLists.Count; i++)
                                     {
-
                                         <tr>
                                             <td>@Model.BookLists[i].b</td>
                                             <td>@Model.BookLists[i].n</td>
@@ -88,7 +87,6 @@
                                             <td>@Model.BookLists[i].t</td>
                                             <td>@Model.BookLists[i].g</td>
                                         </tr>
-
                                     }
                                 }
                             </tbody>

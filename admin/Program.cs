@@ -17,7 +17,6 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Register AutoMapper
 builder.Services.AddAutoMapper(typeof(BibleProfile).Assembly);
 
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
